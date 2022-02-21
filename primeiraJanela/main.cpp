@@ -95,17 +95,19 @@ void desenha(){
 
     //Desenho
     eixos(1);
-    piramide(0.5f, 1);
+    piramide(0.75f, 1);
 
     glutSwapBuffers();
 }
 
 void piramide(float altura, float base){
+
     float v1[3] = {-base/2, 0,  base/2};
     float v2[3] = {-base/2, 0, -base/2};
     float v3[3] = { base/2, 0, -base/2};
     float v4[3] = { base/2, 0,  base/2};
     float v5[3] = {0, altura, 0};
+
     //Desenha BASE
     glColor3f(1, 1, 0);
     glBegin(GL_QUADS);
@@ -142,14 +144,17 @@ void piramide(float altura, float base){
 
 void eixos(float tamanho){
     glBegin(GL_LINES);
+        //Eixo X
         glColor3f(1, 0, 0);
         glVertex3f(0,0,0);
         glVertex3f(tamanho,0,0);
 
+        //Eixo Y
         glColor3f(0, 1, 0);
         glVertex3f(0,0,0);
         glVertex3f(0, tamanho,0);
 
+        //Eixo Z
         glColor3f(0, 0, 1);
         glVertex3f(0,0,0);
         glVertex3f(0, 0, -tamanho);
