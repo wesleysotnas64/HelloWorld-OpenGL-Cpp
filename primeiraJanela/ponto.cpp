@@ -25,6 +25,7 @@ void Ponto::set_coord_z(float z){
 
 Ponto Ponto::get_coord(){
     Ponto p;
+    
     p.set_coord_x(get_coord_x());
     p.set_coord_y(get_coord_y());
     p.set_coord_z(get_coord_z());

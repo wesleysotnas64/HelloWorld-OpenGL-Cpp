@@ -1,4 +1,16 @@
-//g++ main.cpp camera.cpp ponto.cpp -lGL -lGLU -lglut
+/*
+COMPILAR: g++ main.cpp camera.cpp ponto.cpp -lGL -lGLU -lglut
+PROPRIEDADES DA CÂMERA:
+    W -> Mover câmera para cima
+    S -> Mover câmera para baixo
+    A -> Mover câmera para esquerda
+    D -> Mover câmera para direita
+    F -> Zoom out
+    R -> Zoom in
+    T -> Aumentar velocidade
+    G -> Diminuir velocidade
+*/
+
 #include <GL/glut.h>
 #include <iostream>
 
@@ -16,7 +28,6 @@ void piramide(float altura, float base);
 void eixos(float tamanho);
 
 Camera camera;
-float velocidade;
 
 int main(int argc, char** argv){
     glutInit(&argc, argv);
@@ -42,7 +53,8 @@ void inicio(){
     glShadeModel(GL_SMOOTH);
 
     camera.set_raio(3);
-    velocidade = 1;
+    camera.set_velocidade(1);
+    camera.reposiciona_eye();
 }
 
 void update(){
@@ -50,12 +62,14 @@ void update(){
 }
 
 void teclado(unsigned char tecla, int x, int y){
-    if(tecla == 'w') camera.move_latitude( velocidade);
-    if(tecla == 's') camera.move_latitude(-velocidade);
-    if(tecla == 'a') camera.move_longitude(-1);
-    if(tecla == 'd') camera.move_longitude( 1);
-    if(tecla == 'r') camera.move_dolly(-velocidade);
-    if(tecla == 'f') camera.move_dolly( velocidade);
+    if(tecla == 'w') camera.move_latitude( camera.get_velocidade());
+    if(tecla == 's') camera.move_latitude(-camera.get_velocidade());
+    if(tecla == 'a') camera.move_longitude(-camera.get_velocidade());
+    if(tecla == 'd') camera.move_longitude( camera.get_velocidade());
+    if(tecla == 'r') camera.move_dolly(-camera.get_velocidade()*0.1f);
+    if(tecla == 'f') camera.move_dolly( camera.get_velocidade()*0.1f);
+    if(tecla == 't') camera.set_velocidade(camera.get_velocidade()+0.1f);
+    if(tecla == 'g') camera.set_velocidade(camera.get_velocidade()-0.1f);
 }
 
 void desenha(){

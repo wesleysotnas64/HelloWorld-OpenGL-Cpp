@@ -11,6 +11,8 @@ Camera::Camera(){
     set_at(0,0,0);
     set_latitude(0);
     set_longitude(0);
+
+    reposiciona_eye();
 }
 
 void Camera::move_dolly(float vel){
