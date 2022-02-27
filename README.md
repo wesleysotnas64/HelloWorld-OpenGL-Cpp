@@ -10,14 +10,14 @@
  
  ## Passo a passo para instalar e rodar o programa
  #### Instale o compilador do C++, a biblioteca OpenGL e Glut
- 1. $ sudo apt-get update
- 2. $ sudo apt-get install g++
- 3. $ sudo apt-get install libglu1-mesa-dev freeglut3-dev mesa-common-dev
+ 1. Abra o terminal **Ctrl+Alt+T**.
+ 2. $ sudo apt-get update
+ 3. $ sudo apt-get install g++
+ 4. $ sudo apt-get install libglu1-mesa-dev freeglut3-dev mesa-common-dev
  
  #### Executar o programa
- 4. Clone este repositório ou baixe os arquivos em uma pasta no seu sistema (Como exemplo, na pasta *Documentos*).
- 5. Abra o termina **Ctrl+Alt+T**. 
- 6. E navegue até a pasta onde você salvou o programa com: **$ cd Documentos/HelloWorld-OpenGL-Cpp/primeiraJanela**
+ 5. Clone este repositório ou baixe os arquivos em uma pasta no seu sistema (Como exemplo, na pasta *Documentos*). 
+ 6. Navegue até a pasta onde você salvou o programa com: **$ cd Documentos/HelloWorld-OpenGL-Cpp/primeiraJanela**
  7. Agora compile o código com o seguitne comando: **$ g++ main.cpp camera.cpp ponto.cpp -lGL -lGLU -lglut**
  8. Para executar basta digitar no terminal: **$ ./a.out**
 
